@@ -2,17 +2,13 @@ use rand::Rng;
 use std::io;
 use std::io::Write;
 
-
-
 fn main() {
     let mut user_score: i64 = 0; 
     let mut playing: bool = true;
 
-
     game(&mut user_score);
     while playing {
         let mut continue_prompt = String::new(); // inside the loop so that it resets every time
-        // should expect "Y" to keep playing, else it will kill the loop
         println!("Play again? (Y/N)");
         io::stdin().read_line(&mut continue_prompt).expect("Failed to read line");
         if continue_prompt.trim().to_uppercase() != "Y" {
